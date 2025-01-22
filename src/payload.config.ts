@@ -61,17 +61,12 @@ export default buildConfig({
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   email: resend,
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
-  }),
+  db: mongooseAdapter({ url: process.env.DATABASE_URI! }),
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
-  plugins: [
-    ...plugins,
-    // storage-adapter-placeholder
-  ],
-  secret: process.env.PAYLOAD_SECRET,
+  plugins: [...plugins],
+  secret: process.env.PAYLOAD_SECRET!,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -86,7 +81,7 @@ export default buildConfig({
         // for the Vercel Cron secret to be present as an
         // Authorization header:
         const authHeader = req.headers.get('authorization')
-        return authHeader === `Bearer ${process.env.CRON_SECRET}`
+        return authHeader === `Bearer ${process.env.CRON_SECRET!}`
       },
     },
     tasks: [],
