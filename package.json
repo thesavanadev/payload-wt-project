@@ -52,7 +52,8 @@
 		"react-hook-form": "7.54.2",
 		"sharp": "0.33.5",
 		"tailwind-merge": "^2.6.0",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss-animate": "^1.0.7",
+		"zod": "^3.24.1"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.2.0",
@@ -63,7 +64,7 @@
 		"@types/react-dom": "19.0.3",
 		"autoprefixer": "^10.4.20",
 		"copyfiles": "^2.4.1",
-		"eslint": "^9.18.0",
+		"eslint": "^9.19.0",
 		"eslint-config-next": "15.1.5",
 		"postcss": "^8.5.1",
 		"prettier": "^3.4.2",
