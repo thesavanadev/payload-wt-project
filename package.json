@@ -1,6 +1,6 @@
 {
 	"name": "payload-wt-project",
-	"version": "1.0.0",
+	"version": "3.20.0",
 	"description": "Website template for Payload",
 	"license": "MIT",
 	"type": "module",
