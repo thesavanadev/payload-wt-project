@@ -61,10 +61,9 @@ export default buildConfig({
 	editor: defaultLexical,
 	email: resend,
 	db: sqliteAdapter({
-		// sqlite-specific arguments go here. `client.url` is required.
 		client: {
-			url: process.env.DATABASE_URI!,
-			authToken: process.env.DATABASE_AUTH_TOKEN!,
+			url: process.env.DATABASE_URI || "",
+			authToken: process.env.DATABASE_AUTH_TOKEN || "",
 		},
 	}),
 	collections: [Pages, Posts, Media, Categories, Users],
