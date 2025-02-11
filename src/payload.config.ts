@@ -1,4 +1,4 @@
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { sqliteAdapter } from "@payloadcms/db-sqlite";
 
 import sharp from "sharp"; // sharp-import
 import path from "path";
@@ -25,10 +25,10 @@ export default buildConfig({
 		components: {
 			// The `BeforeLogin` component renders a message that you see while logging into your admin panel.
 			// Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
-			// beforeLogin: ['@/components/BeforeLogin'],
+			// beforeLogin: ["@/components/BeforeLogin"],
 			// The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
 			// Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
-			// beforeDashboard: ['@/components/BeforeDashboard'],
+			// beforeDashboard: ["@/components/BeforeDashboard"],
 		},
 		importMap: {
 			baseDir: path.resolve(dirname),
@@ -60,7 +60,13 @@ export default buildConfig({
 	// This config helps us configure global or default features that the other editors can inherit
 	editor: defaultLexical,
 	email: resend,
-	db: mongooseAdapter({ url: process.env.DATABASE_URI! }),
+	db: sqliteAdapter({
+		// sqlite-specific arguments go here. `client.url` is required.
+		client: {
+			url: process.env.DATABASE_URI!,
+			authToken: process.env.DATABASE_AUTH_TOKEN!,
+		},
+	}),
 	collections: [Pages, Posts, Media, Categories, Users],
 	cors: [getServerSideURL()].filter(Boolean),
 	globals: [Header, Footer],
