@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "cross-env NODE_OPTIONS=--no-deprecation next build",
 		"postbuild": "next-sitemap --config next-sitemap.config.cjs",
-		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
 		"dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
 		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
 		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -19,6 +19,7 @@
 		"start": "cross-env NODE_OPTIONS=--no-deprecation next start"
 	},
 	"dependencies": {
+		"@libsql/client": "^0.14.0",
 		"@payloadcms/db-sqlite": "latest",
 		"@payloadcms/email-resend": "latest",
 		"@payloadcms/live-preview-react": "latest",

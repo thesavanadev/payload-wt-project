@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@libsql/client':
+        specifier: ^0.14.0
+        version: 0.14.0
       '@payloadcms/db-sqlite':
         specifier: latest
         version: 3.22.0(@types/react@19.0.7)(payload@3.22.0(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(react@19.0.0)
